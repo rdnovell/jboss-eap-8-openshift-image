@@ -2,7 +2,7 @@ schema_version: 1
 
 name: &imgName "jboss-eap-8/eap8-openjdk11-builder-openshift-rhel8"
 description: "Red Hat JBoss Enterprise Application Platform 8 OpenShift S2I Builder image."
-version: &imgVersion "1.0.0.GA"
+version: &imgVersion "1.0.1.GA"
 from: "registry.access.redhat.com/ubi8/ubi-minimal"
 # Warning, we must use cekit min version 4.3.0 in order for the labels to be set at the end of the build and override JDK modules ones.
 labels:
