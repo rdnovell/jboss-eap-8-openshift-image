@@ -1,4 +1,5 @@
 @jboss-eap-8
+@jboss-eap-8-tech-preview
 Feature: EAP Legacy s2i tests
 
   Scenario: Test provisioning.xml file

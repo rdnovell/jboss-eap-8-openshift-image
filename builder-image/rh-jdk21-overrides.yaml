@@ -11,9 +11,10 @@ osbs:
           - x86_64
           - s390x
           - ppc64le
+          - aarch64
       compose:
         pulp_repos: true
         signing_intent: release
   repository:
-    name: containers/jboss-eap8-openjdk21-builder-openshift
-    branch: jb-eap-8.0-rhel-9
+    name: containers/jboss-eap81-openjdk21-builder-openshift
+    branch: jb-eap-8.1-rhel-9

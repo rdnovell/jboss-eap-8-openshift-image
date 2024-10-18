@@ -1,4 +1,5 @@
 @jboss-eap-8
+@jboss-eap-8-tech-preview
 Feature: EAP configured for datasources
 
 Scenario: Build image with server and datasource

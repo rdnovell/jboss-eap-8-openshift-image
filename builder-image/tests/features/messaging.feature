@@ -1,4 +1,5 @@
 @jboss-eap-8
+@jboss-eap-8-tech-preview
 Feature: EAP messaging tests
 
 Scenario: Configure amq7 remote broker

@@ -90,5 +90,5 @@ that contains the server and application is based on the EAP 8 runtime image.
 
 # Image runtime API
 
-When running an EAP 8 server inside the EAP 8 runtime or S2I builder image, you can use [these environment variables](https://github.com/jboss-container-images/openjdk/blob/develop/modules/jvm/api/module.yaml) to configure the Java VM.
+When running an EAP 8 server inside the EAP 8 runtime or S2I builder image, you can use [these environment variables](https://github.com/rh-openjdk/redhat-openjdk-containers/blob/ubi9/modules/jvm/module.yaml) to configure the Java VM.
 The EAP 8 runtime and S2I builder images are exposing a set of [environment variables](https://github.com/wildfly/wildfly-cekit-modules/blob/main/jboss/container/wildfly/run/api/module.yaml) to fine tune the server execution.

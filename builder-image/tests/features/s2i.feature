@@ -1,4 +1,5 @@
 @jboss-eap-8
+@jboss-eap-8-tech-preview
 Feature: EAP s2i tests
 
   Scenario: Build the image with a server
