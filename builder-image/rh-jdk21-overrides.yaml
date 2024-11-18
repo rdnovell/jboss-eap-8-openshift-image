@@ -1,8 +1,7 @@
 schema_version: 1
 
 packages:
-  content_sets_file: content_sets_rhel8.yml
-
+  content_sets_file: content_sets_rhel9.yml
 
 osbs:
   configuration:
@@ -16,5 +15,5 @@ osbs:
         pulp_repos: true
         signing_intent: release
   repository:
-    name: containers/jboss-eap8-openjdk11-runtime-openshift
-    branch: jb-eap-8.0-rhel-8
+    name: containers/jboss-eap8-openjdk21-builder-openshift
+    branch: jb-eap-8.0-rhel-9

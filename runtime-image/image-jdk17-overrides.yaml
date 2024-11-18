@@ -15,5 +15,6 @@ envs:
 
 modules:
       install:
+          - name: jboss.container.java.jvm.bash
           - name: jboss.container.openjdk.jdk
             version: "17"

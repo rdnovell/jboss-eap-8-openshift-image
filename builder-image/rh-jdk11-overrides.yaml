@@ -1,7 +1,7 @@
 schema_version: 1
 
 packages:
- content_sets_file: content_sets_rhel8.yml
+  content_sets_file: content_sets_rhel8.yml
 
 osbs:
   configuration:
