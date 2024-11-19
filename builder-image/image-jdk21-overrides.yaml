@@ -14,6 +14,9 @@ labels:
       value: *imgName
 
 envs:
+    - name: LOGGING_SCRIPT_DEBUG
+      description: If set to true, ensures that the bash scripts are executed with the -x option, printing the commands and their arguments as they are executed.
+      example: "true"
     - name: IMAGE_NAME
       value: *imgName
 
