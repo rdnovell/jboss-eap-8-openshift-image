@@ -27,9 +27,6 @@ labels:
     - name: "com.redhat.deployments-dir"
       value: "/opt/server/standalone/deployments"
 envs:
-    - name: SCRIPT_DEBUG
-      description: If set to true, ensures that the bash scripts are executed with the -x option, printing the commands and their arguments as they are executed.
-      example: "true"
     - name: IMAGE_NAME
       value: *imgName
     - name: IMAGE_VERSION
@@ -56,7 +53,6 @@ modules:
       install:
           - name: jboss.container.openjdk.jdk
             version: "11"
-          - name: jboss.container.java.jvm.bash
           - name: jboss.container.wildfly.dynamic-resources
           - name: jboss.container.wildfly.run
           - name: jboss.container.eap.cleanup

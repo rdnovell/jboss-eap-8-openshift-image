@@ -10,10 +10,14 @@ labels:
       value: "jboss-eap8-openjdk17-runtime-openshift-container"
 
 envs:
+    - name: SCRIPT_DEBUG
+      description: If set to true, ensures that the bash scripts are executed with the -x option, printing the commands and their arguments as they are executed.
+      example: "true"
     - name: IMAGE_NAME
       value: *imgName
 
 modules:
       install:
+          - name: jboss.container.java.jvm.bash
           - name: jboss.container.openjdk.jdk
             version: "17"

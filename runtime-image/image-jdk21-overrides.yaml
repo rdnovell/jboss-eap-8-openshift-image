@@ -1,0 +1,40 @@
+schema_version: 1
+
+name: &imgName "jboss-eap-8/eap8-openjdk21-runtime-openshift-rhel9"
+description: "The JBoss EAP 8.0 OpenJDK 21 runtime image"
+# This OSBS Base Image is designed and engineered to be the base layer for
+# Red Hat products. This base image is only supported for approved Red Hat
+# products. This image is maintained by Red Hat and updated regularly.
+from: registry.redhat.io/rhel9-osbs/osbs-ubi9-minimal
+labels:
+    - name: "org.jboss.product"
+      value: "eap8-openjdk21-runtime"
+    - name: "com.redhat.component"
+      value: "jboss-eap8-openjdk21-runtime-openshift-container"
+
+envs:
+    - name: LOGGING_SCRIPT_DEBUG
+      description: If set to true, ensures that the bash scripts are executed with the -x option, printing the commands and their arguments as they are executed.
+      example: "true"
+    - name: IMAGE_NAME
+      value: *imgName
+
+modules:
+      repositories:
+          - name: openjdk
+            git:
+              url: https://github.com/rh-openjdk/redhat-openjdk-containers
+              ref: ubi9-wildfly-container-33.0
+          - name: wildfly-cekit-modules
+            git:
+              url: https://github.com/wildfly/wildfly-cekit-modules
+              ref: 0.29.alpha1.ubi9.1
+      install:
+          - name: jboss.container.user
+            version: "2.0+jboss1"
+          - name: jboss.container.openjdk.jdk
+            version: "21"
+          - name: jboss.container.wildfly.dynamic-resources
+            version: "2.0"
+          - name: jboss.container.wildfly.run
+            version: "2.0"

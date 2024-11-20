@@ -1,4 +1,6 @@
 @jboss-eap-8
+# Caused by Keycloak 24 in the manifest
+@ignore
 Feature: Keycloak saml tests
 
   Scenario: Provision the server with keycloak deployment.
