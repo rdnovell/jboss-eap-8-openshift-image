@@ -1,21 +1,21 @@
 schema_version: 1
 
-name: &imgName "jboss-eap-8/eap8-openjdk11-runtime-openshift-rhel8"
-description: "The JBoss EAP 8 OpenJDK 11 runtime image"
-version: &imgVersion "1.0.1.GA"
-from: "registry.access.redhat.com/ubi8/ubi-minimal"
+name: &imgName "jboss-eap-8-tech-preview/eap81-openjdk17-runtime-openshift-rhel9"
+description: "The JBoss EAP 8.1 OpenJDK 17 runtime image"
+version: &imgVersion "1.0.0.Beta"
+from: "registry.access.redhat.com/ubi9/ubi-minimal"
 # Warning, we must use cekit min version 4.3.0 in order for the labels to be set at the end of the build and override JDK modules ones.
 labels:
     - name: "org.jboss.product"
-      value: "eap8-openjdk11-runtime"
+      value: "eap81-openjdk17-runtime"
     - name: "org.jboss.product.version"
       value: *imgVersion
     - name: "com.redhat.component"
-      value: "jboss-eap8-openjdk11-runtime-openshift-container"
+      value: "jboss-eap81-openjdk17-runtime-openshift-container"
     - name: "io.k8s.description"
-      value: "Base image to run an EAP 8 server and application"
+      value: "Base image to run an EAP 8.1 server and application"
     - name: "io.k8s.display-name"
-      value: "JBoss EAP 8 runtime image"
+      value: "JBoss EAP 8.1 runtime image"
     - name: name
       value: *imgName
     - name: io.openshift.expose-services
@@ -27,6 +27,9 @@ labels:
     - name: "com.redhat.deployments-dir"
       value: "/opt/server/standalone/deployments"
 envs:
+    - name: LOGGING_SCRIPT_DEBUG
+      description: If set to true, ensures that the bash scripts are executed with the -x option, printing the commands and their arguments as they are executed.
+      example: "true"
     - name: IMAGE_NAME
       value: *imgName
     - name: IMAGE_VERSION
@@ -42,19 +45,23 @@ modules:
       repositories:
           - name: openjdk
             git:
-              url: https://github.com/jboss-container-images/openjdk
-              ref: wildfly-container-29.0
+              url: https://github.com/rh-openjdk/redhat-openjdk-containers
+              ref: ubi9-wildfly-container-33.0
           - name: wildfly-cekit-modules
             git:
               url: https://github.com/wildfly/wildfly-cekit-modules
-              ref: 0.29.alpha1.3
+              ref: 0.33.0
           - name: eap-modules
             path: ../modules
       install:
+          - name: jboss.container.user
+            version: "2.0+jboss1"
           - name: jboss.container.openjdk.jdk
-            version: "11"
+            version: "17"
           - name: jboss.container.wildfly.dynamic-resources
+            version: "2.0"
           - name: jboss.container.wildfly.run
+            version: "2.0"
           - name: jboss.container.eap.cleanup
           - name: jboss.container.util.pkg-update
 
@@ -66,6 +73,8 @@ packages:
           - jq
           - vim-minimal
           - unzip
+          # required to allow to use oc/kubectl cp command
+          - tar
 
 run:
       user: 185

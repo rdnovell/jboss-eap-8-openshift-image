@@ -1,7 +1,7 @@
 schema_version: 1
 
 packages:
-  content_sets_file: content_sets_rhel8.yml
+  content_sets_file: content_sets_rhel9.yml
 
 
 osbs:
@@ -18,4 +18,4 @@ osbs:
         signing_intent: release
   repository:
     name: containers/jboss-eap8-openjdk17-runtime-openshift
-    branch: jb-eap-8.0-rhel-8
+    branch: jb-eap-8.1-rhel-9

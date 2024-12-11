@@ -1,4 +1,5 @@
 @jboss-eap-8
+@jboss-eap-8-tech-preview
 Feature: Openshift EAP jgroups
 
   Scenario: Build server image

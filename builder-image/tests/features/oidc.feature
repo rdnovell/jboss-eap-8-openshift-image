@@ -1,4 +1,5 @@
 @jboss-eap-8
+@jboss-eap-8-tech-preview
 Feature: OIDC tests
 
    Scenario: Check oidc subsystem configuration.

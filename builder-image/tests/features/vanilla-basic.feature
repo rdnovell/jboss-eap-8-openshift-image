@@ -1,11 +1,12 @@
 @jboss-eap-8
+@jboss-eap-8-tech-preview
 Feature: Vanilla EAP basic tests
 
  Scenario: Check if image version and release is printed on boot
    Given s2i build https://github.com/jboss-container-images/jboss-eap-8-openshift-image from test/vanilla-eap/test-app with env and True using eap8-dev
    | variable                             | value         |
    ### PLACEHOLDER FOR CLOUD CUSTOM TESTING ###
-   Then container log should contain Running jboss-eap-8/
+   Then container log should contain Running jboss-eap-8-tech-preview/
 
 Scenario:  Test basic deployment vanilla WildFly
     When container integ- is started with env
