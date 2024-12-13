@@ -13,4 +13,14 @@ jobs:
         run: cekit --descriptor ./runtime-image/image.yaml build --dry-run docker
       - name: Check Image
         run: |
-          ls -ltR target/image
+          ls -ltr target/image/Dockerfile
+      - name: Checkout other repo
+        uses: actions/checkout@v4
+        with:
+          repository: git@gitlab.cee.redhat.com:rnovelli/jboss-eap8-openjdk21-builder.git
+          token: ${{ secrets.ACTIONS_GITLAB_TOKEN }}
+          ref: jb-eap-8.1-rhel-9
+          fetch-depth: 0
+      - name: Potentially modify other repo files
+        run : |
+          ls -ltR
