@@ -18,6 +18,8 @@ jobs:
         run: |
           cp -prf target/image konflux
           git checkout -b konflux
+          git config --global user.email "rubendario.novelli@gmail.com"
+          git config --global user.name "Ruben Novelli"          
           git add konflux
           git commit -m "Sync files"
           git push origin konflux
