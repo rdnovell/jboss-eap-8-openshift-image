@@ -10,4 +10,7 @@ jobs:
       - name: Install CEKit
         uses: cekit/actions-setup-cekit@v1.1.7
       - name: Build CEKit image
-        run: cekit --descriptor ./runtime-image/image.yaml build
+        run: cekit --descriptor ./runtime-image/image.yaml build --dry-run docker
+      - name: Check Image
+        run: |
+          ls -ltR target/image
