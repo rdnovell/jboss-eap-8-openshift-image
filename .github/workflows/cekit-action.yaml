@@ -1,0 +1,15 @@
+name: Publish cekit
+on:
+  workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install CEKit
+        uses: cekit/actions-setup-cekit@v1.1.7
+      - name: Build CEKit image
+        run: cekit --descriptor ./runtime-image/image.yaml build
+        with:
+          version: 4.13.0
