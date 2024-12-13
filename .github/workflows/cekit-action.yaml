@@ -22,4 +22,5 @@ jobs:
           git config --global user.name "Ruben Novelli"          
           git add konflux
           git commit -m "Sync files"
-          git push origin konflux
+          git remote set-url origin https://x-access-token:${{ secrets.TOKEN }}@github.com/rdnovell/jboss-eap-8-openshift-image.git
+          git push -u origin konflux
