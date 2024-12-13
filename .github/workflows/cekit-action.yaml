@@ -11,5 +11,3 @@ jobs:
         uses: cekit/actions-setup-cekit@v1.1.7
       - name: Build CEKit image
         run: cekit --descriptor ./runtime-image/image.yaml build
-        with:
-          version: 4.13.0
