@@ -43,7 +43,7 @@ envs:
     - name: PROVISIONING_MAVEN_PLUGIN_GROUP_ID
       value: org.jboss.eap.plugins
     - name: PROVISIONING_MAVEN_PLUGIN_VERSION
-      value: 1.0.1.Final-redhat-00014
+      value: 2.0.0.Beta1-redhat-00002
     - name: SSO_DEFAULT_PROVIDER_NAME
       value: rh-sso
 ports:
@@ -56,11 +56,11 @@ modules:
           - name: openjdk
             git:
               url: https://github.com/rh-openjdk/redhat-openjdk-containers
-              ref: ubi9-wildfly-container-33.0
+              ref: ubi9-wildfly-container-35.0
           - name: wildfly-cekit-modules
             git:
               url: https://github.com/wildfly/wildfly-cekit-modules
-              ref: 0.33.0
+              ref: 0.35.0
           - name: eap-modules
             path: ../modules
       install:
