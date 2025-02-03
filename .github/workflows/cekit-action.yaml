@@ -34,6 +34,7 @@ jobs:
           cp -prf target/image/modules target/image/Dockerfile container-images/${{ matrix.jdk_version }}/${{ matrix.image_type }}  
 
       - name: Push the new files
+        if: github.event.pull_request.merged == true
         run: |
           git config --global user.email "rubendario.novelli@gmail.com"
           git config --global user.name "Ruben Novelli"
