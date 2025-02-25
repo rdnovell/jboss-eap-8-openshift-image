@@ -1,4 +1,5 @@
-@jboss-eap-8/eap8-openjdk21-builder-openshift-rhel9
+@jboss-eap-8
+@jboss-eap-8-tech-preview
 Feature: EAP ubi9 specific tests
 
   Scenario: Check if image version and release is printed on boot
