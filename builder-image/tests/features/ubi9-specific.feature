@@ -2,7 +2,7 @@
 Feature: EAP ubi9 specific tests
 
   Scenario: Check if image version and release is printed on boot
-    Given s2i build https://github.com/jboss-container-images/jboss-eap-8-openshift-image from test/test-app with env and True using eap8-dev
+    Given s2i build https://github.com/jboss-container-images/jboss-eap-8-openshift-image from test/test-app with env and True using eap81-beta-dev
     | variable                 | value           |
     ### PLACEHOLDER FOR CLOUD CUSTOM TESTING ###
     Then container log should contain Running jboss-eap-8/
@@ -15,7 +15,7 @@ Feature: EAP ubi9 specific tests
     Then container log should match regex ^ *JAVA_OPTS: *.* -XX:MaxRAMPercentage=25.0\s
 
   Scenario: Check if image version and release is printed on boot
-    Given s2i build https://github.com/jboss-container-images/jboss-eap-8-openshift-image from test/vanilla-eap/test-app with env and True using eap8-dev
+    Given s2i build https://github.com/jboss-container-images/jboss-eap-8-openshift-image from test/vanilla-eap/test-app with env and True using eap81-beta-dev
     | variable                             | value         |
     ### PLACEHOLDER FOR CLOUD CUSTOM TESTING ###
     Then container log should contain Running jboss-eap-8/
