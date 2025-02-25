@@ -258,10 +258,25 @@
       </pluginRepositories>
     </profile>
     <!-- ### configured profiles ### -->
-
+    <profile>
+        <id>jboss-eap-local-repository</id>
+        <repositories>
+            <repository>
+                <id>jboss-eap-local-repository</id>
+                <url>file:///maven-repository</url>
+            </repository>
+        </repositories>
+        <pluginRepositories>
+            <pluginRepository>
+                <id>jboss-eap-local-plugin-repository</id>
+                <url>file:///maven-repository</url>
+            </pluginRepository>
+        </pluginRepositories>
+    </profile>
   </profiles>
   <activeProfiles>
     <activeProfile>securecentral</activeProfile>
+    <activeProfile>jboss-eap-local-repository</activeProfile>
     <!-- ### active profiles ### -->
   </activeProfiles>
 </settings>
