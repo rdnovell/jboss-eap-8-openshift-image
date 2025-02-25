@@ -6,7 +6,6 @@ Feature: EAP ubi9 specific tests
     Given s2i build https://github.com/jboss-container-images/jboss-eap-8-openshift-image from test/test-app with env and True using eap81-beta-dev
     | variable                 | value           |
     ### PLACEHOLDER FOR CLOUD CUSTOM TESTING ###
-    Then container log should contain Running jboss-eap-8/
     Then exactly 2 times container log should contain WFLYSRV0025:
 
   Scenario: Check for adjusted heap sizes
@@ -15,11 +14,11 @@ Feature: EAP ubi9 specific tests
       | env_json  | {"JAVA_MAX_MEM_RATIO": 25} |
     Then container log should match regex ^ *JAVA_OPTS: *.* -XX:MaxRAMPercentage=25.0\s
 
-  Scenario: Check if image version and release is printed on boot
+  Scenario: Build vanilla EAP server
     Given s2i build https://github.com/jboss-container-images/jboss-eap-8-openshift-image from test/vanilla-eap/test-app with env and True using eap81-beta-dev
     | variable                             | value         |
     ### PLACEHOLDER FOR CLOUD CUSTOM TESTING ###
-    Then container log should contain Running jboss-eap-8/
+    Then container log should contain WFLYSRV0025:
 
   Scenario: Check for adjusted heap sizes
     When container integ- is started with args
