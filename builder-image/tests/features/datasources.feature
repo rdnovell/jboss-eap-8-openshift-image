@@ -17,7 +17,7 @@ Scenario: Build image with server and datasource
     | GALLEON_PROVISION_CHANNELS|org.jboss.eap.channels:eap-8.1 |
     | GALLEON_USE_LOCAL_FILE | true |
     | POSTGRESQL_DRIVER_VERSION | 42.2.19 |
-    | ORACLE_DRIVER_VERSION | 19.3.0.0|
+    | ORACLE_DRIVER_VERSION | 23.6.0.24.10|
     ### PLACEHOLDER FOR CLOUD CUSTOM TESTING ###
     Then exactly 2 times container log should contain WFLYSRV0025:
 
@@ -25,7 +25,7 @@ Scenario: Build image with server and datasource
     Given s2i build https://github.com/jboss-container-images/jboss-eap-8-openshift-image from test/test-app-postgresql-oracle with env and true using eap81-beta-dev
     | variable                 | value           |
     | POSTGRESQL_DRIVER_VERSION | 42.2.19 |
-    | ORACLE_DRIVER_VERSION | 19.3.0.0|
+    | ORACLE_DRIVER_VERSION | 23.6.0.24.10|
     ### PLACEHOLDER FOR CLOUD CUSTOM TESTING ###
     Then exactly 2 times container log should contain WFLYSRV0025:
 
