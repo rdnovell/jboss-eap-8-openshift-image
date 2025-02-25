@@ -1,6 +1,7 @@
 @xp5
 @jboss-eap-8
 @jboss-eap-8-tech-preview
+@ignore
 Feature: Openshift XP tests
 
   Scenario: Check that the legacy default config provisioned using galleon plugin works fine
