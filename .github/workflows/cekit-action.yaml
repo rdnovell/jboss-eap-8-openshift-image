@@ -1,7 +1,5 @@
 name: Publish cekit
 on:
-  pull_request:
-    branches: [eap81-beta-dev]
   workflow_dispatch:
 jobs:
   build:
