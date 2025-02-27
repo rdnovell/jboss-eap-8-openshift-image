@@ -1,13 +1,10 @@
-@jboss-eap-8
-# Caused by Keycloak 24 in the manifest
-@ignore
 Feature: Keycloak saml tests
 
   Scenario: Provision the server with keycloak deployment.
      Given XML namespaces
        | prefix | url                          |
        | ns     | urn:jboss:domain:keycloak:1.4 |
-     Given s2i build http://github.com/jfdenise/jboss-eap-8-openshift-image from test/test-app-keycloak-saml using internal-tests
+     Given s2i build https://github.com/jboss-container-images/jboss-eap-8-openshift-image from test/test-app-keycloak-saml using eap81-beta-dev
        | variable                   | value                 |
 
    Scenario: Enable keycloak automatic registration.
