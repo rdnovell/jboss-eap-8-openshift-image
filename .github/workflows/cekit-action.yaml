@@ -1,0 +1,44 @@
+name: Publish cekit
+on:
+  pull_request:
+    branches: [eap81-beta-dev]
+  workflow_dispatch:
+jobs:
+  build:
+    strategy:
+      max-parallel: 1
+      matrix:
+        image_type: [builder-image, runtime-image]
+        jdk_version: [jdk17, jdk21]  
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install CEKit
+        uses: cekit/actions-setup-cekit@v1.1.7
+
+      - name: Create folders
+        run: |
+          mkdir -p container-images/${{ matrix.jdk_version }}/${{ matrix.image_type }}/
+
+      - name: Run CEKit dry-run for jdk17 ${{ matrix.image_type }}
+        if: ${{  matrix.jdk_version == 'jdk17' }}
+        run: cekit --descriptor ./${{ matrix.image_type }}/image.yaml build --dry-run docker
+
+      - name: Run CEKit dry-run for jdk21 ${{ matrix.image_type }}
+        if: ${{ matrix.jdk_version == 'jdk21' }}
+        run: cekit --descriptor ./${{ matrix.image_type }}/image.yaml build  --overrides ./${{ matrix.image_type }}/image-jdk21-overrides.yaml --dry-run docker
+      
+      - name: Copy files to container-images folder
+        run: 
+          cp -prf target/image/modules target/image/Dockerfile container-images/${{ matrix.jdk_version }}/${{ matrix.image_type }}  
+
+      - name: Push the new files
+        #if: github.event.pull_request.merged == true
+        run: |
+          git config --global user.email "rubendario.novelli@gmail.com"
+          git config --global user.name "Ruben Novelli"
+          git add container-images
+          git commit -m "Sync files /${{ matrix.jdk_version }} ${{ matrix.image_type }}"
+          git pull --rebase
+          git push
