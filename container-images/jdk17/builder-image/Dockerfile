@@ -307,7 +307,7 @@
             IMAGE_VERSION="1.0.0.Beta" \
             PROVISIONING_MAVEN_PLUGIN_ARTIFACT_ID="eap-maven-plugin" \
             PROVISIONING_MAVEN_PLUGIN_GROUP_ID="org.jboss.eap.plugins" \
-            PROVISIONING_MAVEN_PLUGIN_VERSION="2.0.0.Beta1-redhat-00004" \
+            PROVISIONING_MAVEN_PLUGIN_VERSION="2.0.0.Beta1-redhat-00005" \
             SSO_DEFAULT_PROVIDER_NAME="rh-sso"
         # Set 'jboss-eap-8-tech-preview/eap81-openjdk17-builder-openshift-rhel9' image defined labels
         LABEL \
